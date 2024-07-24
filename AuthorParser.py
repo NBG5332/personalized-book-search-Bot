@@ -38,7 +38,7 @@ class AuthorParser:
         
         # save to local
         if save_res:
-            f = open("/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/model/author_to_book.pkl", "wb")
+            f = open("model/author_to_book.pkl", "wb")
             pickle.dump(self.author_to_book, f)
             f.close()
 
