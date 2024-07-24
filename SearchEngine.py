@@ -15,15 +15,15 @@ class SearchEngine:
         Initialize a previously-trained Recommender System, a Sentence Similarity Calculator, previously-saved 
         helper variables, and read essential files.
         """
-        self.rs = Recom.load_model("/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/model/")
+        self.rs = Recom.load_model("/model/")
         self.sen_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-        with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/model/author_to_book.pkl', 'rb') as handle:
+        with open('/model/author_to_book.pkl', 'rb') as handle:
             b = pickle.load(handle)
         self.se = AP.AuthorParser(author_to_book=b)
-        self.books_cleaned = pd.read_csv("/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/books_cleaned.csv")
-        self.to_read = pd.read_csv("/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/to_read.csv")
+        self.books_cleaned = pd.read_csv("/goodbooks-10k/books_cleaned.csv")
+        self.to_read = pd.read_csv("/goodbooks-10k/to_read.csv")
 
-        with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/model/embeddings.pkl', "rb") as fIn:
+        with open('/model/embeddings.pkl', "rb") as fIn:
             self.embedding_1 = pickle.load(fIn)
 
     def query(self, user_id, text, to_read_boosting_factor, K, save_res=True):
@@ -60,7 +60,7 @@ class SearchEngine:
 
         # Save to local
         if save_res:
-            path = "/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/saved_results/"
+            path = "/saved_results/"
             if not os.path.exists(path):
                 os.makedirs(path)
             filename = f"{user_id} - {text}.csv"
