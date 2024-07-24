@@ -28,7 +28,7 @@ if(decision =='1'):
     x = input("enter 1 if you want to add book in to_read list for future perpose's\nenter 2 if you want to add any book into your Favourite List\nenter 3 if you want to see user Favourite list of books\nIf not enter any key😊😊\n")
     if(x=='1'):
         # Open the CSV file in append mode
-        with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearchgoodbooks-10k/to_read.csv', mode='a', newline='') as file:
+        with open('goodbooks-10k/to_read.csv', mode='a', newline='') as file:
             writer = csv.writer(file)
             book_id = input("enter book_id: ")
             #user_id = input("enter user_id: ")
@@ -39,7 +39,7 @@ if(decision =='1'):
             writer.writerow(new_row)
 
     if(x=='2'):
-        filename = '/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/favourite.csv'
+        filename = 'goodbooks-10k/favourite.csv'
 
         # Create a new CSV file with headers for two columns User_Id & Book_Id if it doesn't exist
         if not os.path.isfile(filename):
@@ -70,7 +70,7 @@ if(decision =='1'):
 
     if(x=='3'):
         # open the CSV file
-        with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/favourite.csv', 'r') as file:
+        with open('goodbooks-10k/favourite.csv', 'r') as file:
 
             # create a CSV reader object
             reader = csv.reader(file)
@@ -87,7 +87,7 @@ if(decision =='1'):
             # loop through the rows and check for matches
             for row in reader:
                 if entered_value == row[0]:
-                    with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/books_cleaned.csv', 'r') as file1:
+                    with open('goodbooks-10k/books_cleaned.csv', 'r') as file1:
                         reader1 = csv.reader(file1)
                         header = next(reader1)
                         for row1 in reader1:
@@ -102,7 +102,7 @@ if(decision =='1'):
 
 if(decision=='2'):
     # open the CSV file
-    with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/to_read.csv', 'r') as file:
+    with open('goodbooks-10k/to_read.csv', 'r') as file:
 
         # create a CSV reader object
         reader = csv.reader(file)
@@ -120,7 +120,7 @@ if(decision=='2'):
         for row in reader:
             if entered_value == row[0]:
 
-                with open('/Users/cdmstudent/Desktop/DSC-540 Adv ML/Final Project/ChatBot/PersonalizedBookSearch/goodbooks-10k/books_cleaned.csv', 'r') as file1:
+                with open('goodbooks-10k/books_cleaned.csv', 'r') as file1:
                     reader1 = csv.reader(file1)
                     header = next(reader1)
                     for row1 in reader1:
