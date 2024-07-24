@@ -1,0 +1,7 @@
+pickle5
+unicode
+numpy==1.26.4
+pandas
+surprise
+sentence_transformers
+streamlit
